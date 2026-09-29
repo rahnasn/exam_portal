@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="exam-header">
+        <div class="logo">EduTest Portal</div>
+        <div id="timer-box" class="timer">Time Left: <span id="clock">00:00</span></div>
+    </header>
+
+    <main class="container">
+        <!-- Main Exam Panel -->
+        <section id="exam-panel" class="exam-panel">
+            <div class="card">
+                <div class="question-header">
+                    <h3 id="question-number">Question 1</h3>
+                </div>
+                <div class="question-body">
+                    <p id="question-text">Loading question...</p>
+                    <div id="options-container" class="options-container">
+                        <!-- Options generated dynamically -->
+                    </div>
+                </div>
+                <div class="question-footer">
+                    <button id="prev-btn" class="btn btn-secondary" onclick="navigateQuestion(-1)">Previous</button>
+                    <button id="clear-btn" class="btn btn-danger" onclick="clearSelection()">Clear Answer</button>
+                    <button id="next-btn" class="btn btn-primary" onclick="navigateQuestion(1)">Next & Save</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Side Navigation Palette -->
+        <aside id="palette-panel" class="palette-panel">
+            <div class="card">
+                <h4>Question Palette</h4>
+                <div id="palette-grid" class="palette-grid">
+                    <!-- Palette buttons generated dynamically -->
+                </div>
+                <div class="palette-legend">
+                    <div><span class="dot generic"></span> Unvisited</div>
+                    <div><span class="dot active"></span> Current</div>
+                    <div><span class="dot answered"></span> Answered</div>
+                </div>
+                <button id="submit-btn" class="btn btn-success btn-block" onclick="confirmSubmit()">Submit Examination</button>
+            </div>
+        </aside>
+
+        <!-- Final Score Panel (Hidden by Default) -->
+        <section id="result-panel" class="result-panel hidden">
+            <div class="card text-center">
+                <h2>Examination Submitted Successfully</h2>
+                <p class="score-text">Your Score: <span id="final-score">0</span> / <span id="total-score">0</span></p>
+                <div id="score-summary"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
